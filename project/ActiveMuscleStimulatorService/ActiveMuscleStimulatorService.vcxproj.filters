@@ -4,25 +4,22 @@
     <Filter Include="hardware">
       <UniqueIdentifier>{d838cccd-9e96-4737-95f6-25cc7da5b6f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="testing">
-      <UniqueIdentifier>{594f9c45-ba65-48b5-974a-b6b9369f879b}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="relay.h">
+    <ClInclude Include="relay_sbz4.h">
       <Filter>hardware</Filter>
     </ClInclude>
-    <ClInclude Include="composer.h">
-      <Filter>testing</Filter>
+    <ClInclude Include="timing_wired.h">
+      <Filter>hardware</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="relay.cpp">
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="relay_sbz4.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="composer.cpp">
-      <Filter>testing</Filter>
+    <ClCompile Include="timing_wired.cpp">
+      <Filter>hardware</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

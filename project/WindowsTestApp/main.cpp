@@ -2,7 +2,7 @@
 #include "version_info.h"
 #include <cstdio>
 
-using namespace AMS;
+using namespace ams;
 
 int main()
 {

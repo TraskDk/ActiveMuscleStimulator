@@ -14,10 +14,16 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)timing.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tone_generator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)music.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)relay.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdtypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)version_info.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tone_generator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)music.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)version_info.cpp" />
   </ItemGroup>
 </Project>

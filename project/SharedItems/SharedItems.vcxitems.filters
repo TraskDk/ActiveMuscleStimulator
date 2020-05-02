@@ -3,8 +3,34 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)stdtypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)version_info.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)relay.h">
+      <Filter>hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)music.h">
+      <Filter>testing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\GitHub\ActiveMuscleStimulator\project\SharedItems\tone_generator.h">
+      <Filter>testing</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)timing.h">
+      <Filter>hardware</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)version_info.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)music.cpp">
+      <Filter>testing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\GitHub\ActiveMuscleStimulator\project\SharedItems\tone_generator.cpp">
+      <Filter>testing</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="hardware">
+      <UniqueIdentifier>{5e694807-d637-4493-bab6-a04c25110572}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="testing">
+      <UniqueIdentifier>{d2527096-5042-428f-9fbf-90764856cfbd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

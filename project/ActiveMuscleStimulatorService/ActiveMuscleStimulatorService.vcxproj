@@ -45,13 +45,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="composer.h" />
-    <ClInclude Include="relay.h" />
+    <ClInclude Include="relay_sbz4.h" />
+    <ClInclude Include="timing_wired.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="composer.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="relay.cpp" />
+    <ClCompile Include="relay_sbz4.cpp" />
+    <ClCompile Include="timing_wired.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

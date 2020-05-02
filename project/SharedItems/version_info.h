@@ -2,7 +2,7 @@
 
 #include "stdtypes.h"
 
-namespace AMS
+namespace ams
 {
 	/// <summary>
 	/// This method is used for getting information about current version of the software.

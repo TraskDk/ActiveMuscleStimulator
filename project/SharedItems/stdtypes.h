@@ -1,6 +1,6 @@
 #pragma once
 
-namespace AMS
+namespace ams
 {
-	typedef unsigned __int64 uint64;
+	//typedef unsigned __int64 uint64;
 }

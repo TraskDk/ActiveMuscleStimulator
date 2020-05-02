@@ -1,6 +1,6 @@
 #include "version_info.h"
 
-namespace AMS
+namespace ams
 {
 	const char* get_version_info()
 	{
