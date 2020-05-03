@@ -46,11 +46,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="gyroscope_sensehat_b.h" />
+    <ClInclude Include="i2c_handler.h" />
     <ClInclude Include="relay_sbz4.h" />
     <ClInclude Include="timing_wired.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gyroscope_sensehat_h.cpp" />
+    <ClCompile Include="i2c_handler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="relay_sbz4.cpp" />
     <ClCompile Include="timing_wired.cpp" />

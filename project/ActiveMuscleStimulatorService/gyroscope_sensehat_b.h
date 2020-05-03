@@ -1,7 +1,6 @@
 #pragma once
-#include <wiringPiI2C.h>
 #include "gyroscope.h"
-#include <wiringPiSPI.h>
+#include "i2c_handler.h"
 
 namespace ams
 {
@@ -37,6 +36,8 @@ namespace ams
 					// fill in default values here.
 				}
 			};
+
+			class i2c_handler;
 			
 			class gyroscope_sensehat_b final : public gyroscope
 			{
@@ -44,14 +45,14 @@ namespace ams
 				gyroscope_sensehat_b(gyroscope_sensehat_b_settings& settings);
 				~gyroscope_sensehat_b();
 				virtual bool read(math::movement_vector& vec);
-			protected:	
-				void write_byte(byte reg, byte val) { wiringPiI2CWriteReg8(fd_, reg, val); }
-				int read_byte(byte reg) { return wiringPiI2CReadReg8(fd_, reg); }
-				int read_short(byte reg) { return static_cast<short>(read_byte(reg) << 8 | read_byte(static_cast<byte>(reg + 1))); }
+				bool fast_read(math::movement_vector& vec, i2c_handler* handler);
+			protected:
+				void write_byte(byte reg, byte val) { i2c_.write_byte(reg, val); delay(1); }
+				int read_byte(byte reg) { return i2c_.read_byte(reg); }
 				void enable_irq(bool dataReadyEnable);
 				bool is_data_ready();
 			private:
-				int fd_;
+				i2c_handler i2c_;
 				float accel_scale_;
 				float gyro_scale_;
 			};

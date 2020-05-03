@@ -5,6 +5,7 @@
 #include "gyroscope_sensehat_b.h"
 #include "gyroscope_smoothing.h"
 #include "timing_wired.h"
+#include "i2c_handler.h"
 
 using namespace ams;
 
@@ -24,14 +25,20 @@ int main(int argc, const char ** argv)
 			settings.accel_scale = hardware::raspberry::accel_scale_8G;
 			settings.gyro_scale = hardware::raspberry::gyro_scale_1000;
 			
-			hardware::raspberry::gyroscope_sensehat_b gyro_raw(settings);
-			hardware::gyroscope_smoothing gyro(0.001f, &gyro_raw);
+			//hardware::raspberry::gyroscope_sensehat_b gyro_raw(settings);
+			//hardware::gyroscope_smoothing gyro(0.001f, &gyro_raw);
+			hardware::raspberry::gyroscope_sensehat_b gyro(settings);
 
+			printf("Ready.\n");
+			delay(100);
+			
 			math::movement_vector vec{};
+			const auto start = millis();
+			const auto numIterations = 1000;
+
+			auto last_call = micros();
 			auto numWaits = 0;
-			auto start = millis();
-			const int numIterations = 1000;
-			unsigned last_call = micros();
+
 			for (auto i = 1; i <= numIterations; i++)
 			{
 				if (!gyro.read(vec))
@@ -39,13 +46,13 @@ int main(int argc, const char ** argv)
 					numWaits++;
 					//const auto duration = 1000000 / 180;
 					//const auto duration = 1000000 / 150;
-					const auto duration = 1000000 / 115;
+					const auto duration = 1000000 / 110;
 					const auto elapsed = micros() - last_call;
 					const auto remaining = duration - static_cast<int>(elapsed);
 					if (remaining > 0)
 						delayMicroseconds(remaining);
 					while (!gyro.read(vec))
-						delayMicroseconds(100);
+						delayMicroseconds(500);
 				}
 				last_call = micros();
 			}

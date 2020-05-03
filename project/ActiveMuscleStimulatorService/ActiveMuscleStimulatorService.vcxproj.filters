@@ -15,6 +15,9 @@
     <ClInclude Include="gyroscope_sensehat_b.h">
       <Filter>hardware</Filter>
     </ClInclude>
+    <ClInclude Include="i2c_handler.h">
+      <Filter>hardware</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -25,6 +28,9 @@
       <Filter>hardware</Filter>
     </ClCompile>
     <ClCompile Include="gyroscope_sensehat_h.cpp">
+      <Filter>hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="i2c_handler.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
   </ItemGroup>
