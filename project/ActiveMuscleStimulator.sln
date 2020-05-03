@@ -12,7 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7FE233B4-45C9-48C9-B14B-6768055AAEE6}"
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
-		SharedItems\readme.md = SharedItems\readme.md
+		readme.md = readme.md
 	EndProjectSection
 EndProject
 Global

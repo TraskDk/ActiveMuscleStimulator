@@ -12,8 +12,8 @@ can be put in the SharedItems project, and will be automatically included in bot
 
 ### Architecture
 
-- [ ] Create developent platform, which allows for abstract testing in Windows.
-  - [ ] Ensure the abstract platform component is documented.
+- [x] Create developent platform, which allows for abstract testing in Windows.
+  - [x] Ensure the abstract platform component is documented.
   - [ ] Ensure we have established ways of testing the math from data files under Windows.
 
 ### Hardware
