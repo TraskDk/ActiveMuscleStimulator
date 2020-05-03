@@ -1,12 +1,8 @@
 #pragma once
 
-#include "stdtypes.h"
+#include "amstypes.h"
 
 namespace ams
 {
-	/// <summary>
-	/// This method is used for getting information about current version of the software.
-	/// </summary>
-	/// <returns>The name of the current version of the software.</returns>
 	const char* get_version_info();
 }

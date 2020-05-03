@@ -8,6 +8,9 @@ namespace ams
 	{
 		namespace raspberry
 		{
+			/**
+			 * \brief Specifies the range to use when encoding accelerometer values.
+			 */
 			enum accel_scale_value : byte
 			{
 				accel_scale_2G = 0x00,
@@ -16,6 +19,9 @@ namespace ams
 				accel_scale_16G = 0x06
 			};
 
+			/**
+			 * \brief Specifies the range to use when encoding gyroscope values.
+			 */
 			enum gyro_scale_value : byte
 			{
 				gyro_scale_250 = 0x00,
@@ -24,28 +30,54 @@ namespace ams
 				gyro_scale_2000 = 0x06
 			};
 			
+			/**
+			 * \brief Structure for specifying settings to use for the gyroscope device.
+			 */
 			struct gyroscope_sensehat_b_settings
 			{
+				/**
+				 * \brief The scaling to use for gyroscope values.
+				 */
 				gyro_scale_value gyro_scale;
+				/**
+				 * \brief The scaling to use for the accelerometer values.
+				 */
 				accel_scale_value accel_scale;
 				
+				/**
+				 * \brief We fill in some default settings automatically.
+				 */
 				gyroscope_sensehat_b_settings()
 				{
+					// fill in all the default values here.
 					gyro_scale = gyro_scale_500;
 					accel_scale = accel_scale_4G;
-					// fill in default values here.
 				}
 			};
 
-			class i2c_handler;
-			
+			/**
+			 * \brief The driver for the Waveshare Sense HAT (B) gyroscope.
+			 */
 			class gyroscope_sensehat_b final : public gyroscope
 			{
 			public:
+				/**
+				 * \brief Creates an instance of this driver using the specified settings.
+				 * \param settings The settings to use for this instance.
+				 */
 				gyroscope_sensehat_b(gyroscope_sensehat_b_settings& settings);
-				~gyroscope_sensehat_b();
-				virtual bool read(math::movement_vector& vec);
-				bool fast_read(math::movement_vector& vec, i2c_handler* handler);
+				/**
+				 * \brief Powering off the sensor hardware as part of the destructor.
+				 */
+				~gyroscope_sensehat_b() override;
+
+				/**
+				 * \brief Read the current movement data from the sensor.
+				 * \param vec The target vector into which the data will be read.
+				 * \return An indicator if data was read or not.
+				 */
+				bool read(math::movement_vector& vec) override;
+				
 			protected:
 				void write_byte(byte reg, byte val) { i2c_.write_byte(reg, val); delay(1); }
 				int read_byte(byte reg) { return i2c_.read_byte(reg); }

@@ -12,10 +12,10 @@
     <ClInclude Include="timing_wired.h">
       <Filter>hardware</Filter>
     </ClInclude>
-    <ClInclude Include="gyroscope_sensehat_b.h">
+    <ClInclude Include="i2c_handler.h">
       <Filter>hardware</Filter>
     </ClInclude>
-    <ClInclude Include="i2c_handler.h">
+    <ClInclude Include="gyroscope_sensehat_b.h">
       <Filter>hardware</Filter>
     </ClInclude>
   </ItemGroup>
@@ -27,10 +27,10 @@
     <ClCompile Include="timing_wired.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
-    <ClCompile Include="gyroscope_sensehat_h.cpp">
+    <ClCompile Include="i2c_handler.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
-    <ClCompile Include="i2c_handler.cpp">
+    <ClCompile Include="gyroscope_sensehat_b.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
   </ItemGroup>

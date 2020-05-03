@@ -21,11 +21,11 @@ can be put in the SharedItems project, and will be automatically included in bot
 - [x] Add driver for Sb Components Relay 4 Zero 3v 4 Channel.
   - [x] Ensure driver quality (resource consumption).
   - [x] Ensure the driver is tested.
-  - [ ] Ensure the driver is documented. 
-- [ ] Add driver for Wave Share Sense HAT (B) accelerometer + gyroscope.
-  - [ ] Ensure driver quality (resource consumption).
-  - [ ] Ensure the driver is tested.
-  - [ ] Ensure the driver is documented. 
+  - [x] Ensure the driver is documented. 
+- [x] Add driver for Wave Share Sense HAT (B) accelerometer + gyroscope.
+  - [x] Ensure driver quality (resource consumption).
+  - [x] Ensure the driver is tested.
+  - [x] Ensure the driver is documented. 
 - [ ] Add driver for controller.
   - [ ] Ensure driver quality (resource consumption).
   - [ ] Ensure the driver is tested.

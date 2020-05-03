@@ -51,7 +51,7 @@
     <ClInclude Include="timing_wired.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="gyroscope_sensehat_h.cpp" />
+    <ClCompile Include="gyroscope_sensehat_b.cpp" />
     <ClCompile Include="i2c_handler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="relay_sbz4.cpp" />

@@ -1,6 +1,5 @@
-#include "stdtypes.h"
-#include "version_info.h"
 #include <cstdio>
+#include "version_info.h"
 
 using namespace ams;
 
