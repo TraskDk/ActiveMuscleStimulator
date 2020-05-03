@@ -2,20 +2,70 @@
 #include <cstdio>
 #include "music.h"
 #include "relay_sbz4.h"
+#include "gyroscope_sensehat_b.h"
+#include "gyroscope_smoothing.h"
 #include "timing_wired.h"
 
 using namespace ams;
-using namespace testing;
 
 int main(int argc, const char ** argv)
 {
-	if (wiringPiSetup() == -1)
+
+	try
 	{
-		printf("Unable to setup wiringPi.\n");
-		return -1;
+		hardware::timing_wired timing;
+		hardware::raspberry::relay_sbz4 relay;
+		//testing::music::play(&timing, &relay);
+
+		for (auto it = 0; it < 2; it++)
+		{
+			printf("Init...\n");
+			hardware::raspberry::gyroscope_sensehat_b_settings settings{};
+			settings.accel_scale = hardware::raspberry::accel_scale_8G;
+			settings.gyro_scale = hardware::raspberry::gyro_scale_1000;
+			
+			hardware::raspberry::gyroscope_sensehat_b gyro_raw(settings);
+			hardware::gyroscope_smoothing gyro(0.001f, &gyro_raw);
+
+			math::movement_vector vec{};
+			auto numWaits = 0;
+			auto start = millis();
+			const int numIterations = 1000;
+			unsigned last_call = micros();
+			for (auto i = 1; i <= numIterations; i++)
+			{
+				if (!gyro.read(vec))
+				{
+					numWaits++;
+					//const auto duration = 1000000 / 180;
+					//const auto duration = 1000000 / 150;
+					const auto duration = 1000000 / 115;
+					const auto elapsed = micros() - last_call;
+					const auto remaining = duration - static_cast<int>(elapsed);
+					if (remaining > 0)
+						delayMicroseconds(remaining);
+					while (!gyro.read(vec))
+						delayMicroseconds(100);
+				}
+				last_call = micros();
+			}
+			const auto seconds = static_cast<float>(millis() - start) / 1000.0f;
+			const auto rate = numIterations / seconds;
+			{
+				printf("%3.1f\t%d\t%5.2f\t%5.2f\t%5.2f\t%5.2f\t%5.2f\t%5.2f\n",
+					rate, numWaits,
+					vec.values[0], vec.values[1], vec.values[2],
+					vec.values[3], vec.values[4], vec.values[5]);
+			}
+
+			printf("Done.\n");
+			delay(1000);
+		}
 	}
-	hardware::timing_wired timing;
-	hardware::relay_sbz4 relay;	
-	music::play(&timing, &relay);
+	catch(const std::exception & ex)
+	{
+		printf("ERROR: %s\n", ex.what());
+		return 1;
+	}
 	return 0;
 }

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)stdtypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)version_info.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)relay.h">
       <Filter>hardware</Filter>
@@ -13,6 +12,16 @@
       <Filter>testing</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)timing.h">
+      <Filter>hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)gyroscope.h">
+      <Filter>hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)movement_vector.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)amstypes.h" />
+    <ClInclude Include="C:\GitHub\ActiveMuscleStimulator\project\SharedItems\gyroscope_smoothing.h">
       <Filter>hardware</Filter>
     </ClInclude>
   </ItemGroup>
@@ -31,6 +40,9 @@
     </Filter>
     <Filter Include="testing">
       <UniqueIdentifier>{d2527096-5042-428f-9fbf-90764856cfbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{e5784af1-c1c7-4611-847f-d5058df326ae}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

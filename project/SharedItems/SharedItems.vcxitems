@@ -14,11 +14,14 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)gyroscope.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)gyroscope_smoothing.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)movement_vector.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)timing.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tone_generator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)music.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)relay.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)stdtypes.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)amstypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)version_info.h" />
   </ItemGroup>
   <ItemGroup>

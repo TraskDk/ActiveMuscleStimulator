@@ -12,6 +12,9 @@
     <ClInclude Include="timing_wired.h">
       <Filter>hardware</Filter>
     </ClInclude>
+    <ClInclude Include="gyroscope_sensehat_b.h">
+      <Filter>hardware</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -19,6 +22,9 @@
       <Filter>hardware</Filter>
     </ClCompile>
     <ClCompile Include="timing_wired.cpp">
+      <Filter>hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="gyroscope_sensehat_h.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
   </ItemGroup>

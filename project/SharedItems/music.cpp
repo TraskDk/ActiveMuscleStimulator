@@ -5,11 +5,11 @@ namespace ams
 {
 	namespace testing
 	{
-		const static int note_duration_ms = 150;
+		const static int note_duration_ms = 327;
 		const static int note_count = 32;
 		const static int notes0[note_count] = { 24, -1,  0, -1, -1, -1, -1, -1, 33, -1, 33, -1, 31, 31, -1, -1, 29, -1, 29, -1, 28, -1, 28, -1, 26, -1, 26, -1, 24, 24, 24, -1 };
 		const static int notes1[note_count] = { -1, -1, 24, -1,  4, -1,  4, -1,  5, -1,  5, -1,  4,  4, -1, -1,  9, -1,  7, -1, 12, -1,  4, -1,  2, -1,  7, -1,  0,  0,  0, -1 };
-		const static int notes2[note_count] = { -1, -1, -1, -1, 31, -1, 16, -1, 17, -1, 17, -1, 16, 16, -1, -1, 12, -1, 11, -1, 12, -1, 12, -1, 12, -1, 11, -1, 16, 16, 16, -1 };
+		const static int notes2[note_count] = { -1, -1, -1, -1, 31, -1, 16, -1, 17, -1, 17, -1, 16, 16, -1, -1, 12, -1, 11, -1, 12, -1, 12, -1, 12, -1, 11, -1, 19, 19, 19, -1 };
 		const static int notes3[note_count] = { -1, -1, -1, -1, -1, -1, 31, -1, -1, -1, -1, -1, -1, -1, -1, -1,  9, -1,  7, -1, 12, -1,  4, -1,  2, -1,  7, -1,  0,  0,  0, -1 };
 
 		inline int min(int a, int b)
@@ -17,7 +17,7 @@ namespace ams
 			return a < b ? a : b;
 		}
 
-		void music::play(hardware::timing * const timing, hardware::relay * const r)
+		void music::play(hardware::timing* const timing, hardware::relay* const r)
 		{
 			tone_generator c0(note_count, notes0, note_duration_ms);
 			tone_generator c1(note_count, notes1, note_duration_ms);
