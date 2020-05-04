@@ -29,6 +29,22 @@ namespace ams
 				gyro_scale_1000 = 0x04,
 				gyro_scale_2000 = 0x06
 			};
+
+			/**
+			 * \brief Specifies the amount of low-pass filtering being applied.
+			 */
+			enum gyro_low_pass_filtering_value : byte
+			{
+				gyro_low_pass_filtering_disabled = 0x00,
+				gyro_low_pass_filtering_noise_bandwidth_229_8 = 0x01,
+				gyro_low_pass_filtering_noise_bandwidth_187_6 = 0x09,
+				gyro_low_pass_filtering_noise_bandwidth_154_3 = 0x11,
+				gyro_low_pass_filtering_noise_bandwidth_73_3 = 0x19,
+				gyro_low_pass_filtering_noise_bandwidth_35_9 = 0x21,
+				gyro_low_pass_filtering_noise_bandwidth_17_8 = 0x29,
+				gyro_low_pass_filtering_noise_bandwidth_8_9 = 0x31,
+				gyro_low_pass_filtering_noise_bandwidth_376_5 = 0x39
+			};
 			
 			/**
 			 * \brief Structure for specifying settings to use for the gyroscope device.
@@ -43,6 +59,15 @@ namespace ams
 				 * \brief The scaling to use for the accelerometer values.
 				 */
 				accel_scale_value accel_scale;
+				/**
+				 * \brief The target number of samples per second.
+				 */
+				float sampling_rate;
+
+				/**
+				 * \brief The amount of low-pass filtering being applied.
+				 */
+				gyro_low_pass_filtering_value low_pass_filtering;
 				
 				/**
 				 * \brief We fill in some default settings automatically.
@@ -52,6 +77,8 @@ namespace ams
 					// fill in all the default values here.
 					gyro_scale = gyro_scale_500;
 					accel_scale = accel_scale_4G;
+					sampling_rate = 100;
+					low_pass_filtering = gyro_low_pass_filtering_noise_bandwidth_35_9;
 				}
 			};
 
@@ -79,7 +106,7 @@ namespace ams
 				bool read(math::movement_vector& vec) override;
 				
 			protected:
-				void write_byte(byte reg, byte val) { i2c_.write_byte(reg, val); delay(1); }
+				void write_byte(byte reg, byte val) { i2c_.write_byte(reg, val); }
 				int read_byte(byte reg) { return i2c_.read_byte(reg); }
 				void enable_irq(bool dataReadyEnable);
 				bool is_data_ready();

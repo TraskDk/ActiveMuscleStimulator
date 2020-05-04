@@ -18,6 +18,9 @@
     <ClInclude Include="gyroscope_sensehat_b.h">
       <Filter>hardware</Filter>
     </ClInclude>
+    <ClInclude Include="cpu_monitor.h">
+      <Filter>hardware</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

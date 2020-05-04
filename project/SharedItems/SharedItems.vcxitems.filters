@@ -8,9 +8,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)music.h">
       <Filter>testing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\GitHub\ActiveMuscleStimulator\project\SharedItems\tone_generator.h">
-      <Filter>testing</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)timing.h">
       <Filter>hardware</Filter>
     </ClInclude>
@@ -21,18 +18,15 @@
       <Filter>math</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)amstypes.h" />
-    <ClInclude Include="C:\GitHub\ActiveMuscleStimulator\project\SharedItems\gyroscope_smoothing.h">
-      <Filter>hardware</Filter>
-    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)gyroscope_smoothing.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)tone_generator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)version_info.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)music.cpp">
       <Filter>testing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\GitHub\ActiveMuscleStimulator\project\SharedItems\tone_generator.cpp">
-      <Filter>testing</Filter>
-    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tone_generator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="hardware">

@@ -45,6 +45,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cpu_monitor.h" />
     <ClInclude Include="gyroscope_sensehat_b.h" />
     <ClInclude Include="i2c_handler.h" />
     <ClInclude Include="relay_sbz4.h" />

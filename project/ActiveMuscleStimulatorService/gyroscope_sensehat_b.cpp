@@ -25,13 +25,7 @@ namespace ams
 			const byte REG_VAL_PWR_SLEEP = 0x40;
 			const byte REG_VAL_RUN_MODE = 0x01;
 			const byte REG_VAL_RUN_DISABLE_TEMP = 0x08;
-
-			const byte REG_ADD_INT_ENABLE = 0x10;
-			const byte REG_ADD_INT_ENABLE_1 = 0x11;
-			const byte REG_ADD_INT_ENABLE_2 = 0x12;
-			const byte REG_ADD_INT_ENABLE_3 = 0x13;
-			const byte REG_ADD_INT_ENABLE_4 = 0x14;
-
+			
 			const byte REG_ADD_INT_STATUS_1 = 0x1a;
 
 			const byte REG_ADD_REG_BANK_SEL = 0x7F;
@@ -46,17 +40,6 @@ namespace ams
 			// user bank 2
 			const byte REG_ADD_GYRO_SMPLRT_DIV = 0x00;
 			const byte REG_ADD_GYRO_CONFIG_1 = 0x01;
-
-			const byte REG_VAL_BIT_DLPCFG_0 = 0x00;   /* bit[5:3] */
-			const byte REG_VAL_BIT_DLPCFG_1 = 0x08;   /* bit[5:3] */
-			const byte REG_VAL_BIT_DLPCFG_2 = 0x10;   /* bit[5:3] */
-			const byte REG_VAL_BIT_DLPCFG_3 = 0x18;   /* bit[5:3] */
-			const byte REG_VAL_BIT_DLPCFG_4 = 0x20;   /* bit[5:3] */
-			const byte REG_VAL_BIT_DLPCFG_5 = 0x28;   /* bit[5:3] */
-			const byte REG_VAL_BIT_DLPCFG_6 = 0x30;   /* bit[5:3] */
-			const byte REG_VAL_BIT_DLPCFG_7 = 0x38;   /* bit[5:3] */
-
-			const byte REG_VAL_BIT_GYRO_DLPF = 0x01;       /* bit[0]   */
 			
 			const byte REG_ADD_ACCEL_SMPLRT_DIV_2 = 0x11;
 			
@@ -84,11 +67,11 @@ namespace ams
 				write_byte(REG_ADD_PWR_MGMT_1, mode);
 
 				/* user bank 2 register */
-				const byte gyro_config = REG_VAL_BIT_DLPCFG_2 | REG_VAL_BIT_GYRO_DLPF | settings.gyro_scale;
-				const byte accel_config = REG_VAL_BIT_DLPCFG_2 | REG_VAL_BIT_ACCEL_DLPF | settings.accel_scale;
+				const byte gyro_config = settings.low_pass_filtering | settings.gyro_scale;
+				const byte accel_config = settings.low_pass_filtering | settings.accel_scale;
 
-				//const byte sampling_rate_div = 0x07; // 0x07 is 140 Hz
-				const byte sampling_rate_div = 0x0a; // 0x0a is 102 Hz.
+				const byte sampling_rate_div = sample_rate_div(settings.sampling_rate);
+				
 				write_byte(REG_ADD_REG_BANK_SEL, REG_VAL_REG_BANK_2);
 				write_byte(REG_ADD_GYRO_SMPLRT_DIV, sampling_rate_div);
 				write_byte(REG_ADD_GYRO_CONFIG_1, gyro_config);
@@ -116,8 +99,6 @@ namespace ams
 				case gyro_scale_2000: gyro_scale_ = 2000.0f / 32768.0f / 360.0f; break;
 				default: throw std::out_of_range("Unknown gyroscope scaling.");
 				}
-
-				enable_irq(true);	
 			}
 
 			gyroscope_sensehat_b::~gyroscope_sensehat_b()
@@ -135,12 +116,6 @@ namespace ams
 					/* ignore, we were just trying to clean up nicely in the destructor. */
 				}
 			}
-
-			void gyroscope_sensehat_b::enable_irq(bool dataReadyEnable)
-			{
-				write_byte(REG_ADD_INT_ENABLE_1, dataReadyEnable ? 1 : 0);
-			}
-
 
 			bool gyroscope_sensehat_b::is_data_ready()
 			{
