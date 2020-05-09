@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)version_info.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)relay.h">
       <Filter>hardware</Filter>
     </ClInclude>
@@ -14,19 +13,75 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)gyroscope.h">
       <Filter>hardware</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)movement_vector.h">
-      <Filter>math</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)amstypes.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)gyroscope_smoothing.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)tone_generator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)read_only_collection.h">
+      <Filter>collections</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smart_list.h">
+      <Filter>collections</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pattern_model.h">
+      <Filter>movement\symmetric\model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)analysis.h">
+      <Filter>movement\symmetric\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)model_likelihoods.h">
+      <Filter>movement\symmetric\model</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)inference.h">
+      <Filter>movement\symmetric\interence</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)tone_generator.h">
+      <Filter>testing</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)gyroscope_smoothing.h">
+      <Filter>hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)small_list.h">
+      <Filter>collections</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)movement_translator.h">
+      <Filter>movement</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)symmetric_movement_translator.h">
+      <Filter>movement\symmetric</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)movement_vector.h">
+      <Filter>movement</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)sample_point.h">
+      <Filter>movement</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)movement_activation.h">
+      <Filter>movement</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pattern_values.h">
+      <Filter>movement\symmetric\analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)collection.h">
+      <Filter>collections</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)version_info.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)music.cpp">
       <Filter>testing</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)tone_generator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)analysis.cpp">
+      <Filter>movement\symmetric\analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)inference.cpp">
+      <Filter>movement\symmetric\interence</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)tone_generator.cpp">
+      <Filter>testing</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)symmetric_movement_translator.cpp">
+      <Filter>movement\symmetric</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)sample_point.cpp">
+      <Filter>movement</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="hardware">
@@ -35,8 +90,26 @@
     <Filter Include="testing">
       <UniqueIdentifier>{d2527096-5042-428f-9fbf-90764856cfbd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="math">
+    <Filter Include="collections">
+      <UniqueIdentifier>{96082734-0b76-4a5b-963f-f4f6b240bc69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logic">
+      <UniqueIdentifier>{1455bbf7-f282-4879-b624-ca04366b8f92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="movement">
+      <UniqueIdentifier>{b605412e-b52a-488c-bce8-c78fff158dda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="movement\symmetric">
       <UniqueIdentifier>{e5784af1-c1c7-4611-847f-d5058df326ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="movement\symmetric\model">
+      <UniqueIdentifier>{ea3e06df-4dcc-400e-a0ce-570193b74b3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="movement\symmetric\analysis">
+      <UniqueIdentifier>{1b50aaa6-d6b2-4bb2-b516-d7e526b8790d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="movement\symmetric\interence">
+      <UniqueIdentifier>{f5a4a806-2aab-457a-a2ec-4e6cd7dca8a2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

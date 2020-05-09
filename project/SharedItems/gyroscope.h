@@ -17,7 +17,7 @@ namespace ams
 			 * \param vec The target vector into which the data will be read.
 			 * \return An indicator if data was read or not.
 			 */
-			virtual bool read(math::movement_vector& vec) = 0;
+			virtual bool read(movement::movement_vector& vec) = 0;
 		};
 	}
 }

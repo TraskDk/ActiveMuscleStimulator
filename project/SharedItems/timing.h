@@ -20,6 +20,10 @@ namespace ams
 			 * \param howLong The number of microseconds to block.
 			 */
 			virtual void delayMicroseconds(unsigned howLong) = 0;
+
+			
+			virtual unsigned millis() = 0;
+			virtual void delayMilliseconds(unsigned howLong) = 0;
 		};
 	}
 }

@@ -14,19 +14,34 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)analysis.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)collection.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)inference.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)gyroscope.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)gyroscope_smoothing.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)model_likelihoods.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)movement_activation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)movement_vector.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pattern_model.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pattern_values.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)read_only_collection.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)sample_point.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)small_list.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smart_list.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)symmetric_movement_translator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)timing.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)tone_generator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)music.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)relay.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)amstypes.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)version_info.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)movement_translator.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)analysis.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)inference.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)sample_point.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)symmetric_movement_translator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)tone_generator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)music.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)version_info.cpp" />
   </ItemGroup>
 </Project>
