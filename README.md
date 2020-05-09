@@ -35,17 +35,17 @@ of both applications.
 
 ### Math
 
-- [ ] Add fast translation applicator (translating movement into muscle action).
-  - [ ] Ensure the module quality (resource consumption).
-  - [ ] Ensure the modele is tested (correctness).
+- [x] Add fast translation applicator (translating movement into muscle action).
+  - [x] Ensure the module quality (resource consumption).
+  - [x] Ensure the modele is tested (correctness).
   - [ ] Ensure the module is documented.
-- [ ] Add translation learner (teaching or extending models with movement instructions).
-  - [ ] Ensure the module quality (resource consumption).
-  - [ ] Ensure the modele is tested (correctness).
+- [x] Add translation learner (teaching or extending models with movement instructions).
+  - [x] Ensure the module quality (resource consumption).
+  - [x] Ensure the modele is tested (correctness).
   - [ ] Ensure the module is documented.
-- [ ] Ensure that all tranlation logic is abstract, tested, and documented.
-  - [ ] Ensure the module quality (resource consumption).
-  - [ ] Ensure the modele is tested (correctness).
+- [x] Ensure that all tranlation logic is abstract, tested, and documented.
+  - [x] Ensure the module quality (resource consumption).
+  - [x] Ensure the modele is tested (correctness).
   - [ ] Ensure the module is documented.
 
 ### Service Application
