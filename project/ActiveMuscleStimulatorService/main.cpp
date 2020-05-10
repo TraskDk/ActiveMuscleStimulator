@@ -1,10 +1,11 @@
+#include "hardware/raspberry/relay_sbz4.h"
+#include "hardware/raspberry/gyroscope_sensehat_b.h"
+#include "hardware/gyroscope_smoothing.h"
+#include "hardware/cpu_monitor.h"
+#include "hardware/timing_wired.h"
 #include <wiringPi.h>
 #include <cstdio>
-#include "relay_sbz4.h"
-#include "gyroscope_sensehat_b.h"
-#include "gyroscope_smoothing.h"
-#include "timing_wired.h"
-#include "cpu_monitor.h"
+#include <stdexcept>
 
 using namespace ams;
 
@@ -35,7 +36,7 @@ int main(int argc, const char ** argv)
 
 			hardware::cpu_monitor cpu_mon;
 			
-			math::movement_vector vec{};
+			movement::movement_vector vec{};
 			const auto start = millis();
 
 			auto last_call = micros();

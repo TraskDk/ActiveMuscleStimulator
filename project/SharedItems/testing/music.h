@@ -1,6 +1,6 @@
 #pragma once
-#include "relay.h"
-#include "timing.h"
+#include "hardware/relay.h"
+#include "hardware/timing.h"
 
 namespace ams
 {

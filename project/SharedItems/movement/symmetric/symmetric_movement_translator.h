@@ -1,8 +1,8 @@
 #pragma once
-#include "movement_translator.h"
-#include "read_only_collection.h"
-#include "pattern_model.h"
-#include "inference.h"
+#include "movement/movement_translator.h"
+#include "collections/read_only_collection.h"
+#include "movement/model/pattern_model.h"
+#include "movement/inference/inference.h"
 
 namespace ams
 {

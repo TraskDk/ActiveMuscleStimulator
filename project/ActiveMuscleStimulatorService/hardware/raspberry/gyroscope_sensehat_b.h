@@ -1,5 +1,5 @@
 #pragma once
-#include "gyroscope.h"
+#include "hardware/gyroscope.h"
 #include "i2c_handler.h"
 
 namespace ams
@@ -103,7 +103,7 @@ namespace ams
 				 * \param vec The target vector into which the data will be read.
 				 * \return An indicator if data was read or not.
 				 */
-				bool read(math::movement_vector& vec) override;
+				bool read(movement::movement_vector& vec) override;
 				
 			protected:
 				void write_byte(byte reg, byte val) { i2c_.write_byte(reg, val); }

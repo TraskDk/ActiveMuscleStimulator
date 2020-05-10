@@ -1,5 +1,6 @@
 #include "timing_wired.h"
 #include <wiringPi.h>
+#include <stdexcept>
 
 namespace ams
 {
@@ -21,5 +22,16 @@ namespace ams
 		{
 			 ::delayMicroseconds(howLong);
 		}
+
+		unsigned timing_wired::millis()
+		{
+			return ::millis();
+		}
+
+		void timing_wired::delayMilliseconds(unsigned howLong)
+		{
+			::delay(howLong);
+		}
+
 	}
 }

@@ -1,4 +1,3 @@
-#include <unistd.h>
 #include <wiringPi.h>
 #include <stdexcept>
 #include <cmath>
@@ -128,7 +127,7 @@ namespace ams
 				return static_cast<float>(value) * scale;
 			}
 
-			bool gyroscope_sensehat_b::read(math::movement_vector& vec)
+			bool gyroscope_sensehat_b::read(movement::movement_vector& vec)
 			{
 				if (i2c_.read_byte(REG_ADD_INT_STATUS_1) == 0) return false;
 

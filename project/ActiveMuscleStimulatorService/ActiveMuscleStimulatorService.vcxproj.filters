@@ -6,34 +6,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="relay_sbz4.h">
+    <ClInclude Include="hardware\cpu_monitor.h">
       <Filter>hardware</Filter>
     </ClInclude>
-    <ClInclude Include="timing_wired.h">
+    <ClInclude Include="hardware\raspberry\gyroscope_sensehat_b.h">
       <Filter>hardware</Filter>
     </ClInclude>
-    <ClInclude Include="i2c_handler.h">
+    <ClInclude Include="hardware\raspberry\i2c_handler.h">
       <Filter>hardware</Filter>
     </ClInclude>
-    <ClInclude Include="gyroscope_sensehat_b.h">
+    <ClInclude Include="hardware\raspberry\relay_sbz4.h">
       <Filter>hardware</Filter>
     </ClInclude>
-    <ClInclude Include="cpu_monitor.h">
+    <ClInclude Include="hardware\timing_wired.h">
       <Filter>hardware</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="relay_sbz4.cpp">
+    <ClCompile Include="hardware\raspberry\gyroscope_sensehat_b.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
-    <ClCompile Include="timing_wired.cpp">
+    <ClCompile Include="hardware\raspberry\i2c_handler.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
-    <ClCompile Include="i2c_handler.cpp">
+    <ClCompile Include="hardware\raspberry\relay_sbz4.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
-    <ClCompile Include="gyroscope_sensehat_b.cpp">
+    <ClCompile Include="hardware\timing_wired.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
   </ItemGroup>

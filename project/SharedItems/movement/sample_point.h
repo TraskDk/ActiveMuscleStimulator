@@ -3,7 +3,7 @@
 #include "amstypes.h"
 #include "movement_vector.h"
 #include "movement_activation.h"
-#include "collection.h"
+#include "collections/collection.h"
 #include <stdio.h>
 
 namespace ams
@@ -25,15 +25,6 @@ namespace ams
 			bool read_from(FILE* input);
 		};
 		
-		class sample_point_log
-		{
-		public:
-			virtual void append(const sample_point& point)=0;
-			virtual ~sample_point_log() = default;
-
-			static bool read(const char* filename, collection<sample_point>& points);
-			static sample_point_log * create(const char* filename);
-		};
 		
 	}
 }

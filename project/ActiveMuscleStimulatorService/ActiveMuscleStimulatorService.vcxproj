@@ -45,18 +45,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="cpu_monitor.h" />
-    <ClInclude Include="gyroscope_sensehat_b.h" />
-    <ClInclude Include="i2c_handler.h" />
-    <ClInclude Include="relay_sbz4.h" />
-    <ClInclude Include="timing_wired.h" />
+    <ClInclude Include="hardware\cpu_monitor.h" />
+    <ClInclude Include="hardware\raspberry\gyroscope_sensehat_b.h" />
+    <ClInclude Include="hardware\raspberry\i2c_handler.h" />
+    <ClInclude Include="hardware\raspberry\relay_sbz4.h" />
+    <ClInclude Include="hardware\timing_wired.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="gyroscope_sensehat_b.cpp" />
-    <ClCompile Include="i2c_handler.cpp" />
+    <ClCompile Include="hardware\raspberry\gyroscope_sensehat_b.cpp" />
+    <ClCompile Include="hardware\raspberry\i2c_handler.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="relay_sbz4.cpp" />
-    <ClCompile Include="timing_wired.cpp" />
+    <ClCompile Include="hardware\raspberry\relay_sbz4.cpp" />
+    <ClCompile Include="hardware\timing_wired.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

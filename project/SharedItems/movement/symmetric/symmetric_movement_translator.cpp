@@ -1,5 +1,5 @@
 #include "symmetric_movement_translator.h"
-#include "analysis.h"
+#include "movement/analysis/analysis.h"
 
 namespace ams
 {
@@ -71,7 +71,7 @@ namespace ams
 					activation.channels[1] = true;
 							
 				activation = no_activation;
-				progress = idx * 1.0f / num_progress_values;
+				progress = static_cast<float>(idx) * (1.0f / num_progress_values);
 				
 				return true;
 			}

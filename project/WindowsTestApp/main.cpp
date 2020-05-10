@@ -1,7 +1,8 @@
-#include "movement_translator.h"
-#include "smart_list.h"
-#include <cstdio>
+#include "movement/movement_translator.h"
+#include "collections/smart_list.h"
 #include <time.h>
+#include "movement/sample_point_log.h"
+#include <cstdio>
 
 class stopwatch
 {

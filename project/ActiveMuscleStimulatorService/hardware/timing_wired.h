@@ -1,7 +1,5 @@
 #pragma once
-#include <stdexcept>
 #include "timing.h"
-#include "wiringPi.h"
 
 namespace ams
 {
@@ -28,6 +26,13 @@ namespace ams
 			 * \param howLong The number of microseconds to block.
 			 */
 			void delayMicroseconds(unsigned howLong) override;
+
+			
+			unsigned millis() override;
+			
+			void delayMilliseconds(unsigned howLong) override;
+
+			
 		};
 	}
 }

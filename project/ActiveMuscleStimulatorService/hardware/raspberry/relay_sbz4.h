@@ -1,5 +1,5 @@
 #pragma once
-#include "relay.h"
+#include "hardware/relay.h"
 
 namespace ams
 {
