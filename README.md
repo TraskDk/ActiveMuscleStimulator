@@ -15,8 +15,8 @@ of both applications.
 ### Architecture
 
 - [x] Create developent platform, which allows for abstract testing in Windows.
-  - [x] Ensure the abstract platform component is documented.
-  - [ ] Ensure we have established ways of testing the math from data files under Windows.
+  - [ ] Ensure the abstract platform component is documented.
+  - [x] Ensure we have established ways of testing the math from data files under Windows.
 
 ### Hardware
 
