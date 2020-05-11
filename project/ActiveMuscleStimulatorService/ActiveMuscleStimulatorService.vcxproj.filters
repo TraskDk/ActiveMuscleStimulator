@@ -36,5 +36,7 @@
     <ClCompile Include="hardware\timing_wired.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
+    <ClCompile Include="gyro_speed_test.cpp" />
+    <ClCompile Include="tracking_test.cpp" />
   </ItemGroup>
 </Project>

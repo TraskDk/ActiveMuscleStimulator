@@ -1,5 +1,5 @@
 #pragma once
-#include "timing.h"
+#include "hardware/timing.h"
 
 namespace ams
 {

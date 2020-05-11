@@ -39,7 +39,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)movement\analysis\analysis.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)movement\inference\inference.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)movement\sample_point.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)movement\sample_point_log.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)movement\symmetric\symmetric_movement_translator.cpp" />

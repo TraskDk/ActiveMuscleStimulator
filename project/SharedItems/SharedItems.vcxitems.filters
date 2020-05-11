@@ -62,18 +62,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)movement\sample_point_log.h" />
-    <ClInclude Include="C:\GitHub\ActiveMuscleStimulator\project\SharedItems\hardware\timing.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)hardware\timing.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)movement\sample_point.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)movement\symmetric\symmetric_movement_translator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)movement\inference\inference.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)movement\analysis\analysis.cpp">

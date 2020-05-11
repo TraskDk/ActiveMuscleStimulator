@@ -43,6 +43,13 @@
     <Link>
       <LibraryDependencies>wiringPi</LibraryDependencies>
     </Link>
+    <ClCompile />
+    <ClCompile />
+    <ClCompile>
+      <RelaxIEEE>true</RelaxIEEE>
+      <Optimization>MaxSpeed</Optimization>
+      <StrictAliasing>true</StrictAliasing>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="hardware\cpu_monitor.h" />
@@ -52,11 +59,13 @@
     <ClInclude Include="hardware\timing_wired.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="gyro_speed_test.cpp" />
     <ClCompile Include="hardware\raspberry\gyroscope_sensehat_b.cpp" />
     <ClCompile Include="hardware\raspberry\i2c_handler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="hardware\raspberry\relay_sbz4.cpp" />
     <ClCompile Include="hardware\timing_wired.cpp" />
+    <ClCompile Include="tracking_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

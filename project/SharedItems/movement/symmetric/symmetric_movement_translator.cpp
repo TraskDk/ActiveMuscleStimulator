@@ -45,7 +45,7 @@ namespace ams
 			bool symmetric_movement_translator::observe(uint64 time, const movement_vector& movement, movement_activation& activation, float& progress, float& likelihood)
 			{
 				float progress_likelihoods[num_progress_values];
-				matrix_.apply(time, movement, max_error);
+				matrix_.apply(time, alpha, movement, max_error);
 				matrix_.get_likelihoods(likelihoods_);
 				matrix_.get_progress_likelihood(likelihoods_, progress_likelihoods);
 				matrix_.normalize(progress_likelihoods, 1.0E-7f);
@@ -78,7 +78,7 @@ namespace ams
 
 			void symmetric_movement_translator::reset()
 			{
-				matrix_.init(&model_, alpha);
+				matrix_.init(&model_);
 				valid_sample_count_ = 0;
 			}
 
