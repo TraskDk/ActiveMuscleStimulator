@@ -63,6 +63,7 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)movement\sample_point_log.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)hardware\timing.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)hardware\input_device.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)movement\sample_point.cpp">

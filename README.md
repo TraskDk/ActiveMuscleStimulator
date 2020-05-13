@@ -28,10 +28,10 @@ of both applications.
   - [x] Ensure driver quality (resource consumption).
   - [x] Ensure the driver is tested (correctness).
   - [x] Ensure the driver is documented. 
-- [ ] Add driver for controller.
-  - [ ] Ensure driver quality (resource consumption).
-  - [ ] Ensure the driver is tested (correctness).
-  - [ ] Ensure the driver is documented. 
+- [x] Add driver for controller.
+  - [x] Ensure driver quality (resource consumption).
+  - [x] Ensure the driver is tested (correctness).
+  - [x] Ensure the driver is documented. 
 
 ### Math
 

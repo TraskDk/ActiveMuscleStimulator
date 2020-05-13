@@ -21,6 +21,8 @@
     <ClInclude Include="hardware\timing_wired.h">
       <Filter>hardware</Filter>
     </ClInclude>
+    <ClInclude Include="hardware\raspberry\input_controller.h" />
+    <ClInclude Include="hardware\raspberry\input_event_device.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -38,5 +40,8 @@
     </ClCompile>
     <ClCompile Include="gyro_speed_test.cpp" />
     <ClCompile Include="tracking_test.cpp" />
+    <ClCompile Include="hardware\raspberry\input_controller.cpp" />
+    <ClCompile Include="hardware\raspberry\input_event_device.cpp" />
+    <ClCompile Include="test_controller.cpp" />
   </ItemGroup>
 </Project>

@@ -14,6 +14,7 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)hardware\input_device.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)movement\analysis\analysis.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)collections\collection.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)movement\inference\inference.h" />
