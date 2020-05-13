@@ -1,7 +1,7 @@
 #include "hardware/raspberry/gyroscope_sensehat_b.h"
+#include "hardware/raspberry/timing_wired.h"
 #include "hardware/gyroscope_smoothing.h"
 #include "hardware/cpu_monitor.h"
-#include "hardware/timing_wired.h"
 #include "movement/symmetric/symmetric_movement_translator.h"
 #include "movement/sample_point_log.h"
 #include "collections/smart_list.h"
@@ -15,7 +15,7 @@ int tracking_test(const char * learning_file)
 {
 	try
 	{
-		hardware::timing_wired timing;
+		hardware::raspberry::timing_wired timing;
 
 		printf("Initializing hardware.\n");
 		hardware::raspberry::gyroscope_sensehat_b_settings settings{};

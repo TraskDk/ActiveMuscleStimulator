@@ -18,11 +18,12 @@
     <ClInclude Include="hardware\raspberry\relay_sbz4.h">
       <Filter>hardware</Filter>
     </ClInclude>
-    <ClInclude Include="hardware\timing_wired.h">
-      <Filter>hardware</Filter>
-    </ClInclude>
     <ClInclude Include="hardware\raspberry\input_controller.h" />
     <ClInclude Include="hardware\raspberry\input_event_device.h" />
+    <ClInclude Include="logic\stimulator_app.h" />
+    <ClInclude Include="hardware\raspberry\timing_wired.h">
+      <Filter>hardware</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -35,13 +36,14 @@
     <ClCompile Include="hardware\raspberry\relay_sbz4.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
-    <ClCompile Include="hardware\timing_wired.cpp">
-      <Filter>hardware</Filter>
-    </ClCompile>
     <ClCompile Include="gyro_speed_test.cpp" />
     <ClCompile Include="tracking_test.cpp" />
     <ClCompile Include="hardware\raspberry\input_controller.cpp" />
     <ClCompile Include="hardware\raspberry\input_event_device.cpp" />
     <ClCompile Include="test_controller.cpp" />
+    <ClCompile Include="logic\stimulator_app.cpp" />
+    <ClCompile Include="hardware\raspberry\timing_wired.cpp">
+      <Filter>hardware</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

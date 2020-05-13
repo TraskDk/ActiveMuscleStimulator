@@ -1,8 +1,8 @@
 #include "hardware/raspberry/relay_sbz4.h"
 #include "hardware/raspberry/gyroscope_sensehat_b.h"
+#include "hardware/raspberry/timing_wired.h"
 #include "hardware/gyroscope_smoothing.h"
 #include "hardware/cpu_monitor.h"
-#include "hardware/timing_wired.h"
 #include <wiringPi.h>
 #include <cstdio>
 #include <stdexcept>
@@ -13,7 +13,7 @@ int gyro_speed_test()
 {
 	try
 	{
-		hardware::timing_wired timing;
+		hardware::raspberry::timing_wired timing;
 		hardware::raspberry::relay_sbz4 relay;
 
 		//testing::music::play(&timing, &relay);

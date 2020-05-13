@@ -20,7 +20,7 @@ namespace ams
 			 * \param block Indicates if this should be a blocking call, in which case the call will not return immediately when no data is available.
 			 */
 			virtual bool get_event(int& button, int& state, const bool block = false) = 0;
-			~input_device() = default;
+			virtual ~input_device() = default;
 		};
 	}
 }

@@ -10,6 +10,8 @@ namespace ams
 		class timing
 		{
 		public:
+			virtual ~timing() = default;
+			
 			/**
 			 * \brief Gets the current time at microsecond granularity.
 			 * \return The current time.
