@@ -8,13 +8,14 @@ namespace ams
 		void sample_point::write_to(FILE* output) const
 		{
 #ifdef _WIN32
-			fprintf(output, "%I64d,%d,%d,%4.2f,%4.2f,%4.2f,%4.2f,%4.2f,%4.2f\n",
+			const int r = fprintf(output, "%I64d,%d,%d,%4.2f,%4.2f,%4.2f,%4.2f,%4.2f,%4.2f\n",
 #else
-			fprintf(output, "%Ld,%d,%d,%4.2f,%4.2f,%4.2f,%4.2f,%4.2f,%4.2f\n",
+			const int r = fprintf(output, "%Ld,%d,%d,%4.2f,%4.2f,%4.2f,%4.2f,%4.2f,%4.2f\n",
 #endif
 				time_us, act.channels[0], act.channels[1],
 				vec.values[0], vec.values[1], vec.values[2],
 				vec.values[3], vec.values[4], vec.values[5]);
+			if (r < 0) throw std::runtime_error("Unable to write sample point to file.");
 		}
 
 		bool sample_point::read_from(FILE* input)

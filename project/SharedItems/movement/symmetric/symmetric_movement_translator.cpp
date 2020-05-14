@@ -58,20 +58,16 @@ namespace ams
 				else
 					valid_sample_count_ = 0;
 
-				activation = no_activation;
 				if (valid_sample_count_ < min_valid_sample_count)
 				{
+					activation = no_activation;
 					progress = NAN;
 					return false;
 				}
 
-				if (progress < model_.activation_stats.disable_at_progress)
-					activation.channels[0] = true;
-				else if (progress >= 0.5 && progress < 0.5 + model_.activation_stats.disable_at_progress)
-					activation.channels[1] = true;
-							
-				activation = no_activation;
 				progress = static_cast<float>(idx) * (1.0f / num_progress_values);
+				activation.channels[0] = progress < model_.activation_stats.disable_at_progress;
+				activation.channels[1] = progress >= 0.5 && progress < 0.5 + model_.activation_stats.disable_at_progress;
 				
 				return true;
 			}

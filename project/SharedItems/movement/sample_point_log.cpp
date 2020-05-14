@@ -12,7 +12,7 @@ namespace ams
 		public:
 			simple_sample_point_log(const char* filename)
 			{
-				file_ = fopen(filename, "c");
+				file_ = fopen(filename, "w");
 				if (file_ == nullptr)
 					throw std::runtime_error("unable to open file");
 			}
@@ -22,6 +22,7 @@ namespace ams
 			};
 			~simple_sample_point_log()
 			{
+				fflush(file_);
 				fclose(file_);
 			}
 		};
