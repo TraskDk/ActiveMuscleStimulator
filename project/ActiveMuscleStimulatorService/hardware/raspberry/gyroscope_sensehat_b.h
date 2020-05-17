@@ -1,5 +1,6 @@
 #pragma once
 #include "hardware/gyroscope.h"
+#include "interrupt_handler.h"
 #include "i2c_handler.h"
 
 namespace ams
@@ -68,6 +69,11 @@ namespace ams
 				 * \brief The amount of low-pass filtering being applied.
 				 */
 				gyro_low_pass_filtering_value low_pass_filtering;
+
+				/**
+				 * \brief Manage processing using interrupts.
+				 */
+				bool use_interrupts;
 				
 				/**
 				 * \brief We fill in some default settings automatically.
@@ -79,6 +85,7 @@ namespace ams
 					accel_scale = accel_scale_4G;
 					sampling_rate = 100;
 					low_pass_filtering = gyro_low_pass_filtering_noise_bandwidth_35_9;
+					use_interrupts = false;
 				}
 			};
 
@@ -103,8 +110,7 @@ namespace ams
 				 * \param vec The target vector into which the data will be read.
 				 * \return An indicator if data was read or not.
 				 */
-				bool read(movement::movement_vector& vec) override;
-				
+				bool read(movement::movement_vector& vec) override;				
 			protected:
 				void write_byte(byte reg, byte val) { i2c_.write_byte(reg, val); }
 				int read_byte(byte reg) { return i2c_.read_byte(reg); }
@@ -114,6 +120,10 @@ namespace ams
 				i2c_handler i2c_;
 				float accel_scale_;
 				float gyro_scale_;
+				unsigned sample_micros_;
+				
+				unsigned last_sample_micros_;
+				interrupt_handler* interrupt_handler_;
 			};
 		}
 	}

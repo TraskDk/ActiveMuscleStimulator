@@ -17,7 +17,7 @@ namespace ams
 			public:
 				static const int min_group_count = 10;
 				static const int num_progress_values = 100;
-				static const int num_speed_points = 20;
+				static const int num_speed_points = 50;
 
 				symmetric_movement_translator(const read_only_collection<sample_point>& input_points);
 				~symmetric_movement_translator() = default;

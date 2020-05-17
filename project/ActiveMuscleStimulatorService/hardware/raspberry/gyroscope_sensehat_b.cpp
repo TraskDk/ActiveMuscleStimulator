@@ -15,6 +15,8 @@ namespace ams
 			//
 			const byte ICM20948_ADDRESS = 0x68;
 
+			const byte ICM20948_INTERRUPT_PIN = 6;
+			
 			// user bank 0
 			const byte REG_ADD_WIA = 0x00;
 			const byte REG_VAL_WIA = 0xea;
@@ -58,8 +60,13 @@ namespace ams
 				if (rate < 4.5) return 255;
 				return static_cast<byte>(floorf((1125.0f / rate) - 1));
 			}
+
+			inline float sample_rate_from_div(byte div)
+			{
+				return 1125.0f / static_cast<float>(div + 1);
+			}
 			
-			gyroscope_sensehat_b::gyroscope_sensehat_b(gyroscope_sensehat_b_settings& settings) : i2c_(ICM20948_ADDRESS)
+			gyroscope_sensehat_b::gyroscope_sensehat_b(gyroscope_sensehat_b_settings& settings) : i2c_(ICM20948_ADDRESS), interrupt_handler_()
 			{
 				/* - user bank 0 register */
 				write_byte(REG_ADD_REG_BANK_SEL, REG_VAL_REG_BANK_0);
@@ -77,6 +84,8 @@ namespace ams
 				const byte accel_config = settings.low_pass_filtering | settings.accel_scale;
 
 				const byte sampling_rate_div = sample_rate_div(settings.sampling_rate);
+				settings.sampling_rate = sample_rate_from_div(sampling_rate_div);
+				sample_micros_ = static_cast<unsigned>(1000000.0f / settings.sampling_rate);
 				
 				write_byte(REG_ADD_REG_BANK_SEL, REG_VAL_REG_BANK_2);
 				write_byte(REG_ADD_GYRO_SMPLRT_DIV, sampling_rate_div);
@@ -106,7 +115,12 @@ namespace ams
 				default: throw std::out_of_range("Unknown gyroscope scaling.");
 				}
 
-				enable_irq(true);
+				if (settings.use_interrupts)
+				{
+					printf("Enabling gyroscope interrupts.\n");
+					interrupt_handler_ = new interrupt_handler(ICM20948_INTERRUPT_PIN);
+					enable_irq(settings.use_interrupts);
+				}
 			}
 
 			gyroscope_sensehat_b::~gyroscope_sensehat_b()
@@ -118,6 +132,11 @@ namespace ams
 					write_byte(REG_ADD_PWR_MGMT_1, REG_VAL_PWR_DEVICE_RESET);
 					delay(10);
 					write_byte(REG_ADD_PWR_MGMT_1, REG_VAL_PWR_SLEEP);
+					if (interrupt_handler_ != nullptr)
+					{
+						delete interrupt_handler_;
+						interrupt_handler_ = nullptr;
+					}
 				}
 				catch(std::exception & ex)
 				{
@@ -146,7 +165,23 @@ namespace ams
 
 			bool gyroscope_sensehat_b::read(movement::movement_vector& vec)
 			{
-				if (i2c_.read_byte(REG_ADD_INT_STATUS_1) == 0) return false;
+				if (interrupt_handler_)
+				{
+					interrupt_handler_->wait(200);
+				}
+				else
+				{
+					auto elapsed_micros = micros() - last_sample_micros_;
+					if (elapsed_micros < sample_micros_)
+					{
+						auto remaining_micros = sample_micros_ - elapsed_micros;
+						if(remaining_micros > 2000)
+							delayMicroseconds(remaining_micros - 2000);
+					}
+				}
+
+				while(i2c_.read_byte(REG_ADD_INT_STATUS_1) == 0) 
+					delayMicroseconds(500);
 
 				byte raw_data[12] = {};
 				i2c_.read_range(REG_ADD_ACCEL_XOUT, raw_data, sizeof(raw_data));
@@ -156,6 +191,7 @@ namespace ams
 				vec.values[3] = swap_and_scale(raw_data + 6, gyro_scale_);
 				vec.values[4] = swap_and_scale(raw_data + 8, gyro_scale_);
 				vec.values[5] = swap_and_scale(raw_data + 10, gyro_scale_);
+				last_sample_micros_ = micros();
 				return true;
 			}
 

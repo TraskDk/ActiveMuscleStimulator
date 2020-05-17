@@ -6,7 +6,7 @@ namespace ams
 {
 	namespace testing
 	{
-		int test_interrupts();
+		int test_interrupts(int rate);
 	}
 }
 
@@ -26,7 +26,7 @@ int main(int argc, const char ** argv)
 {
 	//try
 	//{
-	//	ams::testing::test_interrupts();
+	//	ams::testing::test_interrupts(atoi(argv[1]));
 	//}catch(std::exception & ex)
 	//{
 	//	printf("error: %s\n", ex.what());

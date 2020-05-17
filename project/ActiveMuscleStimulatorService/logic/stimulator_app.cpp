@@ -27,7 +27,7 @@ namespace ams
 {
 	namespace logic
 	{
-		static const float gyro_sampling_rate = 60;
+		static const float gyro_sampling_rate = 100;
 
 		class dummy_translator : public movement::movement_translator
 		{
@@ -46,6 +46,7 @@ namespace ams
 			settings.accel_scale = hardware::raspberry::accel_scale_4G;
 			settings.gyro_scale = hardware::raspberry::gyro_scale_1000;
 			gyroscope_ = new hardware::raspberry::gyroscope_sensehat_b(settings);
+			printf("Gyroscope enabled at frame rate %3.1f.\n", settings.sampling_rate);
 		}
 
 		void stimulator_app::reset()
@@ -114,29 +115,59 @@ namespace ams
 		
 		void stimulator_app::program()
 		{
-			//unsigned iteration = 0;
-			printf("program mode.\n");
 			auto select_mode_start = 0;
 			auto program_select = -1;
 			auto mode = tracking_mode;
 			auto record_start_time = 0;
 			movement::sample_point_log* log = nullptr;
-			movement::movement_translator* translator = nullptr;
+			movement::movement_translator* translator = load_translator(main_file);
 			movement::sample_point pt{};
-			while (input_->is_available())
+
+			auto lastmode = -1;
+
+			//auto iteration = 0;
+			while (true)
 			{
 				//iteration++;
+				//if ((iteration & 3) == 0)
 				//{
-				//	printf("\r[%d]", iteration);
+				//	printf("\r[%d]", ++iteration);
 				//	fflush(stdout);
 				//}
+				if (lastmode != mode)
+				{
+					lastmode = mode;
+					switch (mode)
+					{
+					case tracking_mode:
+						printf("Now in tracking mode.\n");
+						break;
+					case record_mode:
+						printf("Now in record mode.\n");
+						break;
+					case test_mode:
+						printf("Now in test mode.\n");
+						break;
+					case select_mode:
+						printf("Now in select mode.\n");
+						break;
+					default:
+						printf("Now in mode # %d.\n", mode);
+						break;
+					}
+				}
+				
 				const auto is_non_blocking_mode = (mode == record_mode) || (mode == tracking_mode && translator != nullptr);
 				int button, state;
 
 				if (is_non_blocking_mode)
 				{
-					while (!gyroscope_->read(pt.vec))
-						delayMicroseconds(3000);
+					while(true)
+					{
+						if (gyroscope_->read(pt.vec))
+							break;
+					}
+					;
 					pt.time_us = micros() - record_start_time;
 					if (mode == tracking_mode)
 					{
@@ -153,8 +184,8 @@ namespace ams
 						{
 							reset();
 						}
-						printf("\r%d %4.2f %4.2f %d %d", matched, progress, likelihood, pt.act.channels[0], pt.act.channels[1]);
-						fflush(stdout);
+						//printf("\r%d %4.2f %4.2f %d %d", matched, progress, likelihood, pt.act.channels[0], pt.act.channels[1]);
+						//fflush(stdout);
 					}
 					if (log != nullptr)
 					{
@@ -254,14 +285,14 @@ namespace ams
 							{
 								// start recording
 								mode = record_mode;
-								printf("recording mode...\n");
+								//printf("recording mode...\n");
 								record_start_time = micros();
 								log = movement::sample_point_log::create(recording_file);
 							}
 						}
 						else if(mode == record_mode && enabled_state == false)
 						{
-							printf("recording completed...\n");
+							//printf("recording completed...\n");
 							delete log;
 							log = nullptr;
 							mode = tracking_mode;
@@ -278,28 +309,7 @@ namespace ams
 			while(true)
 			{
 				reset();
-				if (input_->is_available())
-					program();
-			}
-			
-			int button, state;
-			while(true)
-			{
-				if(input_->get_event(button, state, true))
-				{
-					auto enabled_state = state > 0;
-					switch (button)
-					{
-					case hardware::raspberry::key_a:
-						relay_->set(0, enabled_state);
-						relay_->set(1, enabled_state);
-						break;
-					case hardware::raspberry::key_b:
-						relay_->set(2, enabled_state);
-						relay_->set(3, enabled_state);
-						break;
-					}
-				}
+				program();
 			}
 		}
 
