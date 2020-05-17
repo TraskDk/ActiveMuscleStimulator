@@ -110,7 +110,7 @@ namespace ams
 				int read_byte(byte reg) { return i2c_.read_byte(reg); }
 				void enable_irq(bool dataReadyEnable);
 				bool is_data_ready();
-			private:
+
 				i2c_handler i2c_;
 				float accel_scale_;
 				float gyro_scale_;

@@ -18,6 +18,9 @@ namespace ams
 				 * \param device The I2C device identifier.
 				 */
 				i2c_handler(byte device);
+
+				~i2c_handler();
+
 				/**
 				 * \brief Writes a byte to the specified device register.
 				 * \param reg The register at which to write the byte.

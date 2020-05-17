@@ -6,8 +6,8 @@
 #include "../hardware/raspberry/timing_wired.h"
 #include <wiringPi.h>
 #include <cstdio>
-#include "movement/movement_translator.h"
 #include <unistd.h>
+#include "movement/movement_translator.h"
 
 #include <sys/stat.h>
 #include "collections/smart_list.h"

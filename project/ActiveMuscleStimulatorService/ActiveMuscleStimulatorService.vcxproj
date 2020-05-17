@@ -57,6 +57,7 @@
     <ClInclude Include="hardware\raspberry\i2c_handler.h" />
     <ClInclude Include="hardware\raspberry\input_controller.h" />
     <ClInclude Include="hardware\raspberry\input_event_device.h" />
+    <ClInclude Include="hardware\raspberry\interrupt_handler.h" />
     <ClInclude Include="hardware\raspberry\relay_sbz4.h" />
     <ClInclude Include="hardware\raspberry\timing_wired.h" />
     <ClInclude Include="logic\stimulator_app.h" />
@@ -67,10 +68,12 @@
     <ClCompile Include="hardware\raspberry\gyroscope_sensehat_b.cpp" />
     <ClCompile Include="hardware\raspberry\i2c_handler.cpp" />
     <ClCompile Include="hardware\raspberry\input_event_device.cpp" />
+    <ClCompile Include="hardware\raspberry\interrupt_handler.cpp" />
     <ClCompile Include="logic\stimulator_app.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="hardware\raspberry\relay_sbz4.cpp" />
     <ClCompile Include="hardware\raspberry\timing_wired.cpp" />
+    <ClCompile Include="testing\test_interrupts.cpp" />
     <ClCompile Include="test_controller.cpp" />
     <ClCompile Include="tracking_test.cpp" />
   </ItemGroup>

@@ -24,6 +24,7 @@
     <ClInclude Include="hardware\raspberry\timing_wired.h">
       <Filter>hardware</Filter>
     </ClInclude>
+    <ClInclude Include="hardware\raspberry\interrupt_handler.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -45,5 +46,7 @@
     <ClCompile Include="hardware\raspberry\timing_wired.cpp">
       <Filter>hardware</Filter>
     </ClCompile>
+    <ClCompile Include="testing\test_interrupts.cpp" />
+    <ClCompile Include="hardware\raspberry\interrupt_handler.cpp" />
   </ItemGroup>
 </Project>

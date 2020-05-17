@@ -25,6 +25,13 @@ namespace ams
 			const byte REG_VAL_RUN_MODE = 0x01;
 			const byte REG_VAL_RUN_DISABLE_TEMP = 0x08;
 			
+			const byte REG_ADD_INT_ENABLE = 0x10;
+			const byte REG_ADD_INT_ENABLE_1 = 0x11;
+			const byte REG_ADD_INT_ENABLE_2 = 0x12;
+			const byte REG_ADD_INT_ENABLE_3 = 0x13;
+			const byte REG_ADD_INT_ENABLE_4 = 0x14;
+
+			const byte REG_ADD_INT_STATUS   = 0x19;
 			const byte REG_ADD_INT_STATUS_1 = 0x1a;
 
 			const byte REG_ADD_REG_BANK_SEL = 0x7F;
@@ -98,6 +105,8 @@ namespace ams
 				case gyro_scale_2000: gyro_scale_ = 2000.0f / 32768.0f / 360.0f; break;
 				default: throw std::out_of_range("Unknown gyroscope scaling.");
 				}
+
+				enable_irq(true);
 			}
 
 			gyroscope_sensehat_b::~gyroscope_sensehat_b()
@@ -116,8 +125,16 @@ namespace ams
 				}
 			}
 
+			void gyroscope_sensehat_b::enable_irq(bool dataReadyEnable)
+			{
+				write_byte(REG_ADD_INT_ENABLE_1, dataReadyEnable ? 1 : 0);
+				write_byte(REG_ADD_INT_ENABLE, dataReadyEnable ? 1 : 0);
+			}
+
+			
 			bool gyroscope_sensehat_b::is_data_ready()
 			{
+				read_byte(REG_ADD_INT_STATUS);
 				return read_byte(REG_ADD_INT_STATUS_1) > 0;
 			}
 

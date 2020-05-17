@@ -1,4 +1,14 @@
 #include "logic/stimulator_app.h"
+#include <cstdlib>
+#include <stdexcept>
+
+namespace ams
+{
+	namespace testing
+	{
+		int test_interrupts();
+	}
+}
 
 //namespace ams
 //{
@@ -14,6 +24,15 @@
 
 int main(int argc, const char ** argv)
 {
+	//try
+	//{
+	//	ams::testing::test_interrupts();
+	//}catch(std::exception & ex)
+	//{
+	//	printf("error: %s\n", ex.what());
+	//}
+	//return 0;
+	
 	auto app = new ams::logic::stimulator_app();
 	app->run();
 	delete app;

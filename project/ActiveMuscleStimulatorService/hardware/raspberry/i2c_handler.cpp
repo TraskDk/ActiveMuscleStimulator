@@ -20,6 +20,12 @@ namespace ams
 				device_ = device;
 			}
 
+			i2c_handler::~i2c_handler()
+			{
+				close(fd_);
+			}
+
+
 			void i2c_handler::write_byte(byte reg, byte value)
 			{
 				byte register_and_value[2] = { reg, value };
