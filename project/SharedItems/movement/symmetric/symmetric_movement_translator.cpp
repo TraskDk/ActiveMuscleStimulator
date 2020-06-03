@@ -15,7 +15,7 @@ namespace ams
 			using namespace model;
 			using namespace analysis;
 
-			const float alpha = 0.96f;
+			const float alpha = 0.99f;
 			const float max_error = 100.0f;
 
 			symmetric_movement_translator::symmetric_movement_translator(const read_only_collection<sample_point>& input_points) : matrix_()
@@ -52,7 +52,7 @@ namespace ams
 
 				auto idx = matrix_.get_max_index(progress_likelihoods, likelihood);
 				const auto min_likelihood = 0.1f;
-				const auto min_valid_sample_count = 25;
+				const auto min_valid_sample_count = 100;
 				if (likelihood >= min_likelihood)
 					valid_sample_count_++;
 				else
