@@ -8,7 +8,7 @@ namespace ams
 	namespace hardware
 	{
 		namespace raspberry
-		{
+		{			
 			/**
 			 * \brief Encapsulates an input device that can be read by accessing /dev/input. This class manages variable availability of the input device. 
 			 */
@@ -17,7 +17,7 @@ namespace ams
 			public:
 				input_event_device();
 				bool is_available() override;
-				bool get_event(int& button, int& state, bool block = false) override;
+				bool get_event(input_key& button, int& state, bool block = false) override;
 				virtual ~input_event_device();
 			protected:
 				/**
@@ -27,7 +27,7 @@ namespace ams
 				 * \param state  The output state value to extract from the event.
 				 * \return true if an only if button and state could be extracted from the event.
 				 */
-				virtual bool translate_event(const input_event& evt, int& button, int& state) = 0;
+				virtual bool translate_event(const input_event& evt, input_key& button, int& state) = 0;
 
 			private:
 				static const unsigned device_check_interval_ms = 1000;

@@ -158,7 +158,8 @@ namespace ams
 				}
 				
 				const auto is_non_blocking_mode = (mode == record_mode) || (mode == tracking_mode && translator != nullptr);
-				int button, state;
+				hardware::input_key button;
+				int state;
 
 				if (is_non_blocking_mode)
 				{
@@ -198,7 +199,15 @@ namespace ams
 					const auto enabled_state = state > 0;
 					switch (button)
 					{
-					case hardware::raspberry::key_r:
+					case hardware::key_select:
+						if (mode == tracking_mode && enabled_state)
+						{
+							reset();
+							delete translator;
+							translator = nullptr;
+						}
+						break;
+					case hardware::key_r:
 						if (mode == tracking_mode && enabled_state == true)
 						{
 							reset();
@@ -212,7 +221,7 @@ namespace ams
 								translator->reset();
 						}
 						break;
-					case hardware::raspberry::key_a:
+					case hardware::key_a:
 						if (mode == test_mode || mode == record_mode)
 						{
 							relay_->set(0, enabled_state);
@@ -224,7 +233,7 @@ namespace ams
 							program_select = 0;
 						}
 						break;
-					case hardware::raspberry::key_b:
+					case hardware::key_b:
 						if (mode == test_mode || mode == record_mode)
 						{
 							relay_->set(2, enabled_state);
@@ -236,19 +245,19 @@ namespace ams
 							program_select = 1;
 						}
 						break;
-					case hardware::raspberry::key_x:
+					case hardware::key_x:
 						if (mode == select_mode && enabled_state == true)
 						{
 							program_select = 2;
 						}
 						break;
-					case hardware::raspberry::key_y:
+					case hardware::key_y:
 						if (mode == select_mode && enabled_state == true)
 						{
 							program_select = 3;
 						}
 						break;
-					case hardware::raspberry::key_start:
+					case hardware::key_start:
 						if (enabled_state == true)
 						{
 							delete log;
@@ -258,7 +267,7 @@ namespace ams
 							return;
 						}
 						break;
-					case hardware::raspberry::key_select:
+					case hardware::key_l:
 						if (mode == tracking_mode && enabled_state == true)
 						{
 							reset();
@@ -299,6 +308,10 @@ namespace ams
 							delete translator;
 							translator = load_translator(recording_file);
 						}
+						break;
+					default:
+						/* ignore input */
+						break;
 					}
 				}
 			}

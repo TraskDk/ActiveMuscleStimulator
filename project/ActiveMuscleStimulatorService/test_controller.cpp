@@ -13,7 +13,8 @@ namespace ams
 		relay_sbz4 relay;
 		input_controller ctrl;
 
-		int button, state;
+		ams::hardware::input_key button;
+		int state;
 
 		for (auto i = 0;; i++)
 		{
@@ -27,10 +28,10 @@ namespace ams
 			{
 				switch (button)
 				{
-				case key_a: relay.set(0, state > 0); break;
-				case key_b: relay.set(1, state > 0); break;
-				case key_x: relay.set(2, state > 0); break;
-				case key_y: relay.set(3, state > 0); break;
+				case hardware::key_a: relay.set(0, state > 0); break;
+				case hardware::key_b: relay.set(1, state > 0); break;
+				case hardware::key_x: relay.set(2, state > 0); break;
+				case hardware::key_y: relay.set(3, state > 0); break;
 				default: break;
 				}
 			}

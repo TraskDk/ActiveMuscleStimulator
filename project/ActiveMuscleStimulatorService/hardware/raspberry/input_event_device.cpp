@@ -22,9 +22,9 @@ namespace ams
 				return open();
 			}
 
-			bool input_event_device::get_event(int& button, int& state, const bool block)
+			bool input_event_device::get_event(input_key& button, int& state, const bool block)
 			{
-				button = 0;
+				button = key_unknown;
 				state = 0;
 				if (!open())
 				{
@@ -44,7 +44,8 @@ namespace ams
 				if (evt == nullptr)
 					return false;
 
-				if (!translate_event(*evt, button, state)) goto retry;
+				if (!translate_event(*evt, button, state))
+					goto retry;
 				
 				return true;
 			}

@@ -3,6 +3,21 @@ namespace ams
 {
 	namespace hardware
 	{
+		enum input_key
+		{
+			key_unknown,
+			key_start,
+			key_select,
+			key_l,
+			key_r,
+			key_a,
+			key_b,
+			key_x,
+			key_y,
+			key_horizontal,
+			key_vertical,
+		};
+		
 		/**
 		 * \brief Abstract class that represents an input device that can be used for controlling the behavior of the software.
 		 */
@@ -19,7 +34,7 @@ namespace ams
 			 * \param state Set to the button state on if an event was read.
 			 * \param block Indicates if this should be a blocking call, in which case the call will not return immediately when no data is available.
 			 */
-			virtual bool get_event(int& button, int& state, const bool block = false) = 0;
+			virtual bool get_event(input_key& button, int& state, const bool block = false) = 0;
 			virtual ~input_device() = default;
 		};
 	}
