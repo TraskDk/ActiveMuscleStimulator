@@ -15,7 +15,7 @@ of both applications.
 ### Architecture
 
 - [x] Create developent platform, which allows for abstract testing in Windows.
-  - [ ] Ensure the abstract platform component is documented.
+  - [x] Ensure the abstract platform component is documented.
   - [x] Ensure we have established ways of testing the math from data files under Windows.
 
 ### Hardware
@@ -38,17 +38,17 @@ of both applications.
 - [x] Add fast translation applicator (translating movement into muscle action).
   - [x] Ensure the module quality (resource consumption).
   - [x] Ensure the modele is tested (correctness).
-  - [ ] Ensure the module is documented.
+  - [x] Ensure the module is documented.
 - [x] Add translation learner (teaching or extending models with movement instructions).
   - [x] Ensure the module quality (resource consumption).
   - [x] Ensure the modele is tested (correctness).
-  - [ ] Ensure the module is documented.
+  - [x] Ensure the module is documented.
 - [x] Ensure that all tranlation logic is abstract, tested, and documented.
   - [x] Ensure the module quality (resource consumption).
   - [x] Ensure the modele is tested (correctness).
-  - [ ] Ensure the module is documented.
+  - [x] Ensure the module is documented.
 
 ### Service Application
 
-- [ ] Add control logic for the service application.
-- [ ] Ensure that service application  logic is documented.
+- [x] Add control logic for the service application.
+- [x] Ensure that service application logic is documented.
