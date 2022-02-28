@@ -1,4 +1,5 @@
 #pragma once
+#include <functional>
 
 namespace ams
 {
@@ -32,6 +33,43 @@ namespace ams
 			 * \return A reference to an element.
 			 */
 			virtual const T& operator[] (int idx) const = 0;
+			/**
+			 * \brief Counts the number of elements for which the supplied test is true.
+			 * \return The number of maching elements.
+			 */
+			int count(std::function<bool(const T &)> test) const
+			{
+				int res = 0;
+				int cnt = length();
+				for(int i=0;i<cnt;i++)
+					if(test((*this)[i]))
+						res++;
+				return res;
+			}
+			/**
+			 * \brief Checks if any of the elements satisfies the specified test.
+			 * \return Indicator if any such element exists.
+			 */
+			bool any(std::function<bool(const T &)> test) const
+			{
+				int cnt = length();
+				for(int i=0;i<cnt;i++)
+					if(test((*this)[i]))
+						return true;
+				return false;
+			}	
+			/**
+			 * \brief Finds the index of the first element satisfying the specified test.
+			 * \return The index of the first match or -1 otherwise.
+			 */
+			int index_of(std::function<bool(const T &)> test, int start_index=0) const
+			{
+				int cnt = length();
+				for(int i=start_index;i<cnt;i++)
+					if(test((*this)[i]))
+						return i;
+				return -1;
+			}
 		};
 
 	}

@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "unity_internals.h": "c",
+        "*.ipp": "c",
+        "unity_config.h": "c"
     }
 }

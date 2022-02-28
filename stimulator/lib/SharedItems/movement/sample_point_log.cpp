@@ -27,7 +27,6 @@ namespace ams
 			}
 		};
 
-
 		bool sample_point_log::read(const char* filename, collections::collection<sample_point>& points)
 		{
 			auto f = fopen(filename, "r");
