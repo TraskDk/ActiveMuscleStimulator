@@ -1,0 +1,8 @@
+{
+    "name": "ams-raspberry",
+    "version": "1.0.0",
+    "dependencies":
+    {
+        "ams" : "*"
+    }
+}
