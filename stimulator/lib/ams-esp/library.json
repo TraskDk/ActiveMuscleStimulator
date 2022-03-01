@@ -1,0 +1,8 @@
+{
+    "name": "ams-esp",
+    "version": "1.0.0",
+    "dependencies":
+    {
+        "ams" : "*"
+    }
+}

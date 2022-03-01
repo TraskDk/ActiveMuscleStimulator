@@ -5,7 +5,7 @@ extern "C"
 #include "esp_system.h"
 #include "esp_log.h"
 }
-#include "cpu_stats.h"
+#include "abstract/cpu_stats.h"
 
 static TickType_t cpu_task_delay;
 char stats_buffer[1024];
