@@ -1,4 +1,5 @@
 #pragma once
+#include "logic/stimulator_base_app.h"
 #include "hardware/timing.h"
 #include "hardware/input_device.h"
 #include "hardware/relay.h"
@@ -9,7 +10,7 @@ namespace ams
 {
 	namespace logic
 	{		
-		class stimulator_app
+		class stimulator_app : public stimulator_base_app
 		{
 		public:
 			stimulator_app();

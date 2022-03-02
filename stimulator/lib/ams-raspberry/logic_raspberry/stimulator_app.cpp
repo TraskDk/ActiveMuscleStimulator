@@ -1,9 +1,9 @@
 #include "stimulator_app.h"
 #include "movement/sample_point_log.h"
-#include "../hardware/raspberry/input_controller.h"
-#include "../hardware/raspberry/relay_sbz4.h"
-#include "../hardware/raspberry/gyroscope_sensehat_b.h"
-#include "../hardware/raspberry/timing_wired.h"
+#include "../hardware_raspberry/input_controller.h"
+#include "../hardware_raspberry/relay_sbz4.h"
+#include "../hardware_raspberry/gyroscope_sensehat_b.h"
+#include "../hardware_raspberry/timing_wired.h"
 #include <wiringPi.h>
 #include <cstdio>
 #include <unistd.h>
